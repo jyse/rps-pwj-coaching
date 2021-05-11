@@ -1,12 +1,21 @@
-import React from 'react'
-import "./Hand.css"
+import React from "react";
+import "./Hand.css";
+import { useDispatch } from "react-redux";
+import { setUserHand, selectUserHand } from "../slices/gameSlice";
 
-const Hand = ({value}) => {
-    return (
-        <div className="hand">
-            <img src={`/images/Hand${value}.png`} alt="HandUser"/>
-        </div>
-    )
-}
+const Hand = ({ value }) => {
+  const dispatch = useDispatch();
 
-export default Hand
+  const pickHand = (e, value) => {
+    dispatch(setUserHand(value));
+    console.log(setUserHand(value), "is setUserhand succesful?");
+  };
+
+  return (
+    <div className="hand" onClick={(e) => pickHand(e, value)}>
+      <img src={`/images/Hand${value}.png`} alt="HandUser" />
+    </div>
+  );
+};
+
+export default Hand;
