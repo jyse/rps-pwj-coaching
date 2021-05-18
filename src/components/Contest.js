@@ -6,13 +6,14 @@ import {
   selectComputerHand,
   setComputerHand,
 } from "../slices/gameSlice";
+import Referee from "./Referee";
 
 const Contest = () => {
   const userHand = useSelector(selectUserHand);
   const computerHand = useSelector(selectComputerHand);
   const dispatch = useDispatch();
   const hands = ["Rock", "Paper", "Scissors"];
-  const [timeOut, setTimeOut] = useState(false);
+  const [timeOut, setTimerReferee] = useState(false);
 
   useEffect(() => {
     let cpHand = hands[Math.floor(Math.random() * hands.length)];
@@ -22,7 +23,7 @@ const Contest = () => {
     }, 500);
 
     setTimeout(function () {
-      setTimeOut(true);
+      setTimerReferee(true);
     }, 1000);
   }, [userHand]);
 
@@ -33,6 +34,7 @@ const Contest = () => {
           <h1>You Picked</h1>
           <img src={`/images/Hand${userHand}.png`} alt="HandUser" />
         </div>
+        {timeOut && <Referee />}
         <div className="contest__handContainer">
           <h1>The House Picked</h1>
           <img

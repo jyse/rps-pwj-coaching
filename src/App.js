@@ -7,7 +7,6 @@ import { selectUserHand } from "./slices/gameSlice";
 
 function App() {
   const userHand = useSelector(selectUserHand);
-  console.log(userHand, "what is in userHand from store");
   return (
     <div className="app">
       <ScoreBoard />

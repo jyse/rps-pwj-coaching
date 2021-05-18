@@ -1,6 +1,7 @@
 import React from "react";
 import Hand from "./Hand";
 import "./Hands.css";
+
 const Hands = () => {
   return (
     <div className="hands">
