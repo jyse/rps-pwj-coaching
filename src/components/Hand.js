@@ -8,7 +8,6 @@ const Hand = ({ value }) => {
 
   const pickHand = (e, value) => {
     dispatch(setUserHand(value));
-    console.log(setUserHand(value), "is setUserhand succesful?");
   };
 
   return (
