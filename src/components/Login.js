@@ -25,6 +25,7 @@ const Login = () => {
   }, [userName]);
 
   const signIn = () => {
+    console.log(userName, "what is userName?");
     if (!userName) {
       auth
         .signInWithPopup(provider)
@@ -34,14 +35,6 @@ const Login = () => {
         .catch((error) => {
           alert(error.message);
         });
-    } else if (userName) {
-      auth
-        .signOut()
-        .then(() => {
-          dispatch(setSignOutState());
-          history.push("/");
-        })
-        .catch((err) => alert(err.message));
     }
   };
 

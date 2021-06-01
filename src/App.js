@@ -7,6 +7,7 @@ import { selectUserName } from "./slices/userSlice";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import ScoreBoard from "./components/ScoreBoard";
+import Header from "./components/Header";
 
 function App() {
   const userHand = useSelector(selectUserHand);
@@ -20,8 +21,9 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/home">
+            <Header />
             <ScoreBoard />
-            {!userName ? <Hands /> : <Contest />}
+            {!userHand ? <Hands /> : <Contest />}
           </Route>
         </Switch>
       </Router>
